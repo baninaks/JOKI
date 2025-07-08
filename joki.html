@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaprakGhoib - Jasa Joki Tugas Informatika FILKOM UB</title>
+    <style>
+        :root {
+            --primary: #0056b3; /* Biru UB */
+            --secondary: #ff6b6b;
+            --dark: #1a2e47; /* Dark blue UB */
+            --light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #003366);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo-img {
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+        
+        .logo-main {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-sub {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .logo-uni {
+            font-size: 1rem;
+            background-color: white;
+            color: var(--primary);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 1rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+        
+        .btn:hover {
+            background-color: #3a5bef;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
+        }
+        
+        .btn-wa {
+            background-color: #25D366;
+        }
+        
+        .btn-wa:hover {
+            background-color: #1da851;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-form {
+            background-color: #4285F4;
+        }
+        
+        .btn-form:hover {
+            background-color: #3367d6;
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+        }
+        
+        .btn-complain {
+            background-color: var(--secondary);
+        }
+        
+        .btn-complain:hover {
+            background-color: #e05555;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        .testimonials {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            color: rgba(74, 107, 255, 0.1);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            margin-top: 1rem;
+            color: var(--primary);
+        }
+        
+        .testimonial-course {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            margin: 1rem 0;
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--secondary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            background-color: #e05555;
+        }
+        
+        .testimonial-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-form h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+        }
+        
+        .rating {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .rating input {
+            display: none;
+        }
+        
+        .rating label {
+            font-size: 1.5rem;
+            color: #ddd;
+            cursor: pointer;
+        }
+        
+        .rating input:checked ~ label {
+            color: #ffc107;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .hero {
+                padding: 2rem 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-main {
+                font-size: 2.2rem;
+            }
+            
+            .logo-img {
+                height: 80px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo.png" alt="LaprakGhoib Logo" class="logo-img">
+                <div class="logo-main">LAPRAKGHOIB</div>
+                <div class="logo-sub">Extra Help for Your</div>
+                <div class="logo-sub">Informatics Lab Reports</div>
+                <div class="logo-uni">Khusus Teknik Informatika FILKOM UB</div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="hero">
+            <h2>Stres Karena Tumpukan Laprak dan Tugas?</h2>
+            <p>Kami spesialis membantu mahasiswa FILKOM UB menyelesaikan tugas dan laporan praktikum untuk mata kuliah Pemrograman Dasar, Pemrograman Lanjut, Basis Data, dan Sistem Operasi dengan cepat, rapi, dan terjangkau.</p>
+            <div>
+                <a href="https://wa.me/628155551333?text=Halo%20LaprakGhoib,%20saya%20maba%20FILKOM%20UB%20mau%20pesan%20jasa%20joki%20tugas" class="btn btn-wa">
+                    <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                </a>
+                <a href="Form.html"btn btn-form">
+                    <i class="fab fa-google"></i> Form Pemesanan
+                </a>
+            </div>
+        </section>
+        
+        <section class="services">
+            <div class="service-card">
+                <h3>Pemrograman Dasar</h3>
+                <p>Tugas dan laprak bahasa C, algoritma, dan dasar pemrograman lainnya</p>
+                <div class="price">Rp 35.000 - 60.000</div>
+                <p>Termasuk penjelasan dalam kode</p>
+                <a href="https://wa.me/628155551333?text=Saya%20mau%20order%20jasa%20Pemrograman%20Dasar" class="btn btn-wa">
+                    <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                </a>
+            </div>
+            
+            <div class="service-card">
+                <h3>Pemrograman Lanjut</h3>
+                <p>Tugas OOP Java/Python, struktur data, dan konsep lanjutan</p>
+                <div class="price">Rp 35.000 - 70.000</div>
+                <p>Dengan dokumentasi lengkap</p>
+                <a href="https://wa.me/628155551333?text=Saya%20mau%20order%20jasa%20Pemrograman%20Lanjut" class="btn btn-wa">
+                    <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                </a>
+            </div>
+            
+            <div class="service-card">
+                <h3>Basis Data & Sistem Operasi</h3>
+                <p>Laprak SQL, desain database, dan tugas sistem operasi</p>
+                <div class="price">Rp 40.000 - 80.000</div>
+                <p>ERD, query, dan laporan lengkap</p>
+                <a href="https://wa.me/628155551333?text=Saya%20mau%20order%20jasa%20Basis%20Data/Sistem%20Operasi" class="btn btn-wa">
+                    <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                </a>
+            </div>
+        </section>
+        
+        <section class="testimonials">
+            <h2>Apa Kata Mahasiswa FILKOM UB?</h2>
+            <p>Testimoni asli dari mahasiswa yang sudah menggunakan jasa kami</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"Tugas besar Pemrograman Lanjut Java tentang GUI dan multithreading berhasil diselesaikan dengan sangat rapi. Dapat nilai A dan dosen pun memuji!"</p>
+                    <div class="testimonial-author">- Rina, TIF FILKOM UB 2024</div>
+                    <div class="testimonial-course">Pemrograman Lanjut</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"Laprak Sistem Operasi tentang scheduling algorithms dikerjakan cepat dengan penjelasan detail setiap bagian. Sangat membantu untuk UTS!"</p>
+                    <div class="testimonial-author">- Andi, TIF FILKOM UB 2024</div>
+                    <div class="testimonial-course">Sistem Operasi</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"Tugas Basis Data dari ERD sampai implementasi SQL dikerjakan dengan sempurna. Bahkan ada bonus penjelasan cara optimalisasi query!"</p>
+                    <div class="testimonial-author">- Budi, TIF FILKOM UB 2024</div>
+                    <div class="testimonial-course">Basis Data</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"Deadline Pemrograman Dasar tinggal 6 jam, panik banget! LaprakGhoib bisa selesaiin dalam 4 jam dengan hasil yang rapi dan komentar penjelasan."</p>
+                    <div class="testimonial-author">- Siti, TIF FILKOM UB 2024</div>
+                    <div class="testimonial-course">Pemrograman Dasar</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="testimonial-form">
+            <h3>Bagikan Pengalaman Anda</h3>
+            <form id="testimoniForm">
+                <div class="form-group">
+                    <label for="nama">Nama (Boleh nama samaran)</label>
+                    <input type="text" id="nama" placeholder="Contoh: Mahasiswa TIF 2023" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="angkatan">Angkatan</label>
+                    <select id="angkatan" required>
+                        <option value="">Pilih Angkatan</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="matkul">Mata Kuliah</label>
+                    <select id="matkul" required>
+                        <option value="">Pilih Mata Kuliah</option>
+                        <option value="Pemrograman Dasar">Pemrograman Dasar</option>
+                        <option value="Pemrograman Lanjut">Pemrograman Lanjut</option>
+                        <option value="Basis Data">Basis Data</option>
+                        <option value="Sistem Operasi">Sistem Operasi</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="testimoni">Testimoni Anda</label>
+                    <textarea id="testimoni" placeholder="Ceritakan pengalaman Anda menggunakan jasa LaprakGhoib" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Rating</label>
+                    <div class="rating">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1">★</label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Kirim Testimoni</button>
+            </form>
+        </section>
+        
+        <section class="cta">
+            <h2>Kenapa Memilih LaprakGhoib?</h2>
+            <ul style="margin: 1rem 0 2rem 2rem;">
+                <li>Dikerjakan oleh asisten dan alumni FILKOM UB</li>
+                <li>Paham standar dan kebutuhan tugas FILKOM UB</li>
+                <li>Revisi gratis jika ada kesalahan</li>
+                <li>Dokumentasi dan penjelasan dalam kode</li>
+                <li>Rahasia mahasiswa terjaga</li>
+            </ul>
+            
+            <div style="margin-top: 2rem;">
+                <a href="https://wa.me/628155551333?text=Saya%20ada%20pertanyaan%20sebelum%20order" class="btn btn-wa">
+                    <i class="fab fa-whatsapp"></i> Tanya-tanya Dulu
+                </a>
+                <a href="https://wa.me/628155551333?text=Saya%20ada%20keluhan%20mengenai%20pesanan" class="btn btn-complain">
+                    <i class="fas fa-exclamation-circle"></i> Laporkan Keluhan
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <img src="Logo.png" alt="LaprakGhoib Logo" style="height: 80px; margin-bottom: 1rem;">
+            <div class="contact-info">
+                <p><i class="fab fa-whatsapp"></i> +62 815-5551-333 (Pemesanan & Keluhan)</p>
+                <p><i class="fas fa-envelope"></i> laprakghoib@ub.ac.id</p>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Veteran, Ketawanggede, Kec. Lowokwaru, Kota Malang</p>
+            </div>
+            <p>&copy; 2023 LaprakGhoib - Layanan Resmi Mahasiswa FILKOM UB</p>
+        </div>
+    </footer>
+    
+    <a href="https://wa.me/628155551333" class="floating-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script>
+        document.getElementById('testimoniForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ambil nilai form
+            const nama = document.getElementById('nama').value;
+            const angkatan = document.getElementById('angkatan').value;
+            const matkul = document.getElementById('matkul').value;
+            const testimoni = document.getElementById('testimoni').value;
+            const rating = document.querySelector('input[name="rating"]:checked')?.value;
+            
+            // Validasi
+            if (!nama || !angkatan || !matkul || !testimoni || !rating) {
+                alert('Harap lengkapi semua field!');
+                return;
+            }
+            
+            // Simpan testimoni ke localStorage (sementara)
+            const newTestimonial = {
+                nama,
+                angkatan,
+                matkul,
+                testimoni,
+                rating,
+                date: new Date().toLocaleDateString()
+            };
+            
+            let testimonials = JSON.parse(localStorage.getItem('testimonials') || '[]');
+            testimonials.push(newTestimonial);
+            localStorage.setItem('testimonials', JSON.stringify(testimonials));
+            
+            // Tampilkan alert
+            alert(`Terima kasih ${nama} (${angkatan}) atas testimoni untuk mata kuliah ${matkul} dan rating ${rating} bintang!`);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

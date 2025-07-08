@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan LaprakGhoib FILKOM UB</title>
+    <style>
+        :root {
+            --primary: #0056b3; /* Biru UB */
+            --secondary: #ff6b6b;
+            --dark: #1a2e47;
+            --light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            width: 150px;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .required::after {
+            content: " *";
+            color: var(--secondary);
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        textarea {
+            min-height: 100px;
+        }
+        
+        .checkbox-group {
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-item input {
+            margin-right: 10px;
+        }
+        
+        .file-upload {
+            border: 2px dashed #ddd;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background-color: #003d82;
+            transform: translateY(-2px);
+        }
+        
+        .btn-wa {
+            background-color: #25D366;
+            margin-top: 15px;
+        }
+        
+        .btn-wa:hover {
+            background-color: #1da851;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        #confirmation {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        #confirmation h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="Logo.png" alt="LaprakGhoib Logo" class="logo">
+            <h1>FORM PEMESANAN LAPRAKGHOIB</h1>
+            <p>Khusus Mahasiswa FILKOM UB - Teknik Informatika</p>
+        </div>
+        
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="name" class="required">Nama Lengkap/Nama Samaran</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="nim" class="required">NIM</label>
+                <input type="text" id="nim" name="nim" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="angkatan" class="required">Angkatan</label>
+                <select id="angkatan" name="angkatan" required>
+                    <option value="">Pilih Angkatan</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="wa" class="required">Nomor WhatsApp</label>
+                <input type="text" id="wa" name="wa" placeholder="Contoh: 8155551333 (tanpa +62)" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="required">Email UB</label>
+                <input type="email" id="email" name="email" placeholder="contoh@ub.ac.id" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="required">Mata Kuliah</label>
+                <select id="matkul" name="matkul" required>
+                    <option value="">Pilih Mata Kuliah</option>
+                    <option value="Pemrograman Dasar">Pemrograman Dasar</option>
+                    <option value="Pemrograman Lanjut">Pemrograman Lanjut</option>
+                    <option value="Basis Data">Basis Data</option>
+                    <option value="Sistem Operasi">Sistem Operasi</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="required">Jenis Tugas</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="type1" name="type" value="Laporan Praktikum">
+                        <label for="type1">Laporan Praktikum</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="type2" name="type" value="Tugas Coding">
+                        <label for="type2">Tugas Coding</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="type3" name="type" value="Tugas Teori">
+                        <label for="type3">Tugas Teori</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="type4" name="type" value="Bimbingan Privat">
+                        <label for="type4">Bimbingan Privat (Zoom/Discord)</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="deadline" class="required">Deadline</label>
+                <input type="date" id="deadline" name="deadline" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="instructions">Instruksi Khusus</label>
+                <textarea id="instructions" name="instructions" placeholder="Contoh: Tolong berikan penjelasan di setiap fungsi, gunakan bahasa Inggris untuk komentar, dll."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Upload File Pendukung</label>
+                <div class="file-upload">
+                    <p>Seret file ke sini atau klik untuk mengupload</p>
+                    <input type="file" id="file" name="file">
+                    <small>(Maks. 10MB, format: .pdf, .doc, .zip, .rar)</small>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="payment" class="required">Metode Pembayaran</label>
+                <select id="payment" name="payment" required>
+                    <option value="">Pilih Pembayaran</option>
+                    <option value="Transfer Bank">Transfer Bank (BNI/BRI)</option>
+                    <option value="Dana">Dana</option>
+                    <option value="Gopay">Gopay</option>
+                    <option value="OVO">OVO</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="confirm" name="confirm" required>
+                    <label for="confirm" class="required">Saya sudah memeriksa data dan siap melakukan pembayaran setelah mendapatkan invoice via WhatsApp</label>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn">KIRIM PEMESANAN</button>
+            
+            <a href="https://wa.me/628155551333" class="btn btn-wa">
+                Butuh Bantuan? Chat WhatsApp Kami
+            </a>
+        </form>
+        
+        <div id="confirmation" class="hidden">
+            <h2>Terima Kasih Telah Memesan!</h2>
+            <p>Pesanan Anda telah berhasil dikirim. Kami akan segera menghubungi Anda via WhatsApp untuk konfirmasi dan invoice.</p>
+            <p>Nomor WhatsApp kami: <strong>+62 815-5551-333</strong></p>
+            <button class="btn" onclick="window.location.reload()">Buat Pesanan Baru</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const nim = document.getElementById('nim').value;
+            const waNumber = document.getElementById('wa').value;
+            const matkul = document.getElementById('matkul').value;
+            const deadline = document.getElementById('deadline').value;
+            
+            // Get selected types
+            const types = [];
+            document.querySelectorAll('input[name="type"]:checked').forEach((checkbox) => {
+                types.push(checkbox.value);
+            });
+            
+            // Create WhatsApp message
+            const message = `Halo LaprakGhoib, saya ${name} (NIM: ${nim}) ingin memesan jasa untuk:
+            
+• Mata Kuliah: ${matkul}
+• Jenis Tugas: ${types.join(', ')}
+• Deadline: ${deadline}
+
+Instruksi Khusus:
+${document.getElementById('instructions').value || 'Tidak ada'}
+
+Mohon konfirmasi ketersediaan dan total biayanya. Terima kasih!`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/628155551333?text=${encodedMessage}`, '_blank');
+            
+            // Show confirmation
+            document.getElementById('orderForm').classList.add('hidden');
+            document.getElementById('confirmation').classList.remove('hidden');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        });
+        
+        // File upload feedback
+        document.getElementById('file').addEventListener('change', function(e) {
+            if (this.files.length > 0) {
+                const fileName = this.files[0].name;
+                const fileSize = (this.files[0].size / 1024 / 1024).toFixed(2); // in MB
+                document.querySelector('.file-upload p').textContent = `${fileName} (${fileSize} MB)`;
+            }
+        });
+        
+        // Email validation
+        document.getElementById('email').addEventListener('blur', function() {
+            if (!this.value.endsWith('@ub.ac.id')) {
+                alert('Harap gunakan email UB (@ub.ac.id)');
+                this.focus();
+            }
+        });
+    </script>
+</body>
+</html>
